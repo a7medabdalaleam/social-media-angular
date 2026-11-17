@@ -1,0 +1,396 @@
+<div>
+  <h2 class="mt-6 text-2xl font-extrabold tracking-tight text-slate-900 rtl:tracking-normal">
+    {{ 'REGISTER.TITLE' | translate }}
+  </h2>
+  <p class="mt-1 text-sm text-slate-500">{{ 'REGISTER.SUBTITLE' | translate }}</p>
+</div>
+
+<form
+  [formGroup]="registerFrom"
+  (ngSubmit)="sendResiter()"
+  class="mt-6 space-y-4"
+  autocomplete="off"
+>
+  <!-- Full name -->
+  <div class="group relative">
+    <span
+      class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-4 text-slate-400 transition-colors group-focus-within:text-[#00298a]"
+    >
+      <svg
+        class="h-5 w-5"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.5 20.118a7.5 7.5 0 0 1 15 0A17.9 17.9 0 0 1 12 21.75c-2.676 0-5.216-.584-7.5-1.632Z"
+        />
+      </svg>
+    </span>
+    <input
+      [class]="{
+        'border-red-500!': registerFrom.get('name')?.invalid && registerFrom.get('name')?.touched,
+        'border-green-500!': registerFrom.get('name')?.valid,
+      }"
+      type="text"
+      formControlName="name"
+      [placeholder]="'REGISTER.NAME_PLACEHOLDER' | translate"
+      class="block h-[46px] w-full rounded-xl border border-slate-200 bg-slate-50 ps-12 pe-4 text-sm text-slate-900 placeholder-slate-400 shadow-[0_1px_2px_rgba(15,23,42,0.03)] transition-all duration-200 hover:border-slate-300 focus:border-[#00298a] focus:bg-white focus:ring-4 focus:ring-[#00298a]/10 focus:outline-none"
+    />
+  </div>
+  @if (registerFrom.get('name')?.invalid && registerFrom.get('name')?.touched) {
+    <div
+      class="-mt-1.5 flex items-start gap-2 rounded-xl border border-red-200 bg-red-50 px-3.5 py-2.5 text-xs font-medium text-red-700"
+      role="alert"
+    >
+      <span class="sr-only">{{ 'VALIDATIONR.DANGER' | translate }}</span>
+      <i class="fa-solid fa-circle-exclamation mt-0.5 text-red-500"></i>
+      <ul class="space-y-0.5">
+        @if (registerFrom.get('name')?.hasError('required')) {
+          <li>{{ 'VALIDATIONR.NAME_REQUIRED' | translate }}</li>
+        } @else if (registerFrom.get('name')?.hasError('minlength')) {
+          <li>{{ 'VALIDATIONR.NAME_MINLENGTH' | translate }}</li>
+        }
+      </ul>
+    </div>
+  }
+
+  <!-- Username -->
+  <div class="group relative">
+    <span
+      class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-4 text-slate-400 transition-colors group-focus-within:text-[#00298a]"
+    >
+      <svg
+        class="h-5 w-5"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M16.5 12a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 1 0-2.636 6.364"
+        />
+      </svg>
+    </span>
+    <input
+      type="text"
+      formControlName="username"
+      [placeholder]="'REGISTER.USERNAME_PLACEHOLDER' | translate"
+      class="block h-[46px] w-full rounded-xl border border-slate-200 bg-slate-50 ps-12 pe-4 text-sm text-slate-900 placeholder-slate-400 shadow-[0_1px_2px_rgba(15,23,42,0.03)] transition-all duration-200 hover:border-slate-300 focus:border-[#00298a] focus:bg-white focus:ring-4 focus:ring-[#00298a]/10 focus:outline-none"
+    />
+  </div>
+
+  <!-- Email -->
+  <div class="group relative">
+    <span
+      class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-4 text-slate-400 transition-colors group-focus-within:text-[#00298a]"
+    >
+      <svg
+        class="h-5 w-5"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"
+        />
+      </svg>
+    </span>
+    <input
+      [class]="{
+        'border-red-500!': registerFrom.get('email')?.invalid && registerFrom.get('email')?.touched,
+        'border-green-500!': registerFrom.get('email')?.valid,
+      }"
+      type="email"
+      formControlName="email"
+      [placeholder]="'REGISTER.EMAIL_PLACEHOLDER' | translate"
+      class="block h-[46px] w-full rounded-xl border border-slate-200 bg-slate-50 ps-12 pe-4 text-sm text-slate-900 placeholder-slate-400 shadow-[0_1px_2px_rgba(15,23,42,0.03)] transition-all duration-200 hover:border-slate-300 focus:border-[#00298a] focus:bg-white focus:ring-4 focus:ring-[#00298a]/10 focus:outline-none"
+    />
+  </div>
+  @if (registerFrom.get('email')?.invalid && registerFrom.get('email')?.touched) {
+    <div
+      class="-mt-1.5 flex items-start gap-2 rounded-xl border border-red-200 bg-red-50 px-3.5 py-2.5 text-xs font-medium text-red-700"
+      role="alert"
+    >
+      <span class="sr-only">{{ 'VALIDATIONR.DANGER' | translate }}</span>
+      <i class="fa-solid fa-circle-exclamation mt-0.5 text-red-500"></i>
+      <ul class="space-y-0.5">
+        @if (registerFrom.get('email')?.hasError('required')) {
+          <li>{{ 'VALIDATIONR.EMAIL_REQUIRED' | translate }}</li>
+        } @else if (registerFrom.get('email')?.hasError('email')) {
+          <li>{{ 'VALIDATIONR.EMAIL_INVALID' | translate }}</li>
+        }
+      </ul>
+    </div>
+  }
+
+  <!-- Gender -->
+  <div class="group relative">
+    <span
+      class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-4 text-slate-400 transition-colors group-focus-within:text-[#00298a]"
+    >
+      <svg
+        class="h-5 w-5"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M15 19.128a9.38 9.38 0 0 0 2.625.372 9.337 9.337 0 0 0 4.121-.952 4.125 4.125 0 0 0-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 0 1 8.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0 1 11.964-3.07M12 6.375a3.375 3.375 0 1 1-6.75 0 3.375 3.375 0 0 1 6.75 0Zm8.25 2.25a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"
+        />
+      </svg>
+    </span>
+    <select
+      [class]="{
+        'border-red-500!':
+          registerFrom.get('gender')?.invalid && registerFrom.get('gender')?.touched,
+        'border-green-500!': registerFrom.get('gender')?.valid,
+      }"
+      formControlName="gender"
+      class="block h-[46px] w-full cursor-pointer appearance-none rounded-xl border border-slate-200 bg-slate-50 ps-12 pe-10 text-sm text-slate-900 shadow-[0_1px_2px_rgba(15,23,42,0.03)] transition-all duration-200 hover:border-slate-300 focus:border-[#00298a] focus:bg-white focus:ring-4 focus:ring-[#00298a]/10 focus:outline-none"
+    >
+      <option value="" selected>{{ 'REGISTER.GENDER_PLACEHOLDER' | translate }}</option>
+      <option value="male">{{ 'REGISTER.GENDER_MALE' | translate }}</option>
+      <option value="female">{{ 'REGISTER.GENDER_FEMALE' | translate }}</option>
+    </select>
+    <i
+      class="fa-solid fa-chevron-down pointer-events-none absolute end-4 top-1/2 -translate-y-1/2 text-[10px] text-slate-400 transition-colors group-focus-within:text-[#00298a]"
+    ></i>
+  </div>
+
+  @if (registerFrom.get('gender')?.invalid && registerFrom.get('gender')?.touched) {
+    <div
+      class="-mt-1.5 flex items-start gap-2 rounded-xl border border-red-200 bg-red-50 px-3.5 py-2.5 text-xs font-medium text-red-700"
+      role="alert"
+    >
+      <span class="sr-only">{{ 'VALIDATIONR.DANGER' | translate }}</span>
+      <i class="fa-solid fa-circle-exclamation mt-0.5 text-red-500"></i>
+      <ul class="space-y-0.5">
+        @if (registerFrom.get('gender')?.hasError('required')) {
+          <li>{{ 'VALIDATIONR.GENDER_REQUIRED' | translate }}</li>
+        }
+      </ul>
+    </div>
+  }
+
+  <!-- Date of birth -->
+  <div class="group relative">
+    <span
+      class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-4 text-slate-400 transition-colors group-focus-within:text-[#00298a]"
+    >
+      <svg
+        class="h-5 w-5"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"
+        />
+      </svg>
+    </span>
+    <input
+      [class]="{
+        'border-red-500!':
+          registerFrom.get('dateOfBirth')?.invalid && registerFrom.get('dateOfBirth')?.touched,
+        'border-green-500!': registerFrom.get('dateOfBirth')?.valid,
+      }"
+      type="date"
+      formControlName="dateOfBirth"
+      class="block h-[46px] w-full cursor-pointer rounded-xl border border-slate-200 bg-slate-50 ps-12 pe-4 text-sm text-slate-900 shadow-[0_1px_2px_rgba(15,23,42,0.03)] transition-all duration-200 hover:border-slate-300 focus:border-[#00298a] focus:bg-white focus:ring-4 focus:ring-[#00298a]/10 focus:outline-none"
+    />
+  </div>
+
+  @if (registerFrom.get('dateOfBirth')?.invalid && registerFrom.get('dateOfBirth')?.touched) {
+    <div
+      class="-mt-1.5 flex items-start gap-2 rounded-xl border border-red-200 bg-red-50 px-3.5 py-2.5 text-xs font-medium text-red-700"
+      role="alert"
+    >
+      <span class="sr-only">{{ 'VALIDATIONR.DANGER' | translate }}</span>
+      <i class="fa-solid fa-circle-exclamation mt-0.5 text-red-500"></i>
+      <ul class="space-y-0.5">
+        @if (registerFrom.get('dateOfBirth')?.hasError('required')) {
+          <li>{{ 'VALIDATIONR.DOB_REQUIRED' | translate }}</li>
+        }
+      </ul>
+    </div>
+  }
+
+  <!-- Password -->
+  <div class="group relative">
+    <span
+      class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-4 text-slate-400 transition-colors group-focus-within:text-[#00298a]"
+    >
+      <svg
+        class="h-5 w-5"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M15.75 5.25a3 3 0 0 1 3 3m3 0a6 6 0 0 1-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1 1 21.75 8.25Z"
+        />
+      </svg>
+    </span>
+    <input
+      [class]="{
+        'border-red-500!':
+          registerFrom.get('password')?.invalid && registerFrom.get('password')?.touched,
+        'border-green-500!': registerFrom.get('password')?.valid,
+      }"
+      type="password"
+      formControlName="password"
+      [placeholder]="'REGISTER.PASSWORD_PLACEHOLDER' | translate"
+      class="block h-[46px] w-full rounded-xl border border-slate-200 bg-slate-50 ps-12 pe-4 text-sm text-slate-900 placeholder-slate-400 shadow-[0_1px_2px_rgba(15,23,42,0.03)] transition-all duration-200 hover:border-slate-300 focus:border-[#00298a] focus:bg-white focus:ring-4 focus:ring-[#00298a]/10 focus:outline-none"
+    />
+  </div>
+
+  @if (registerFrom.get('password')?.invalid && registerFrom.get('password')?.touched) {
+    <div
+      class="-mt-1.5 flex items-start gap-2 rounded-xl border border-red-200 bg-red-50 px-3.5 py-2.5 text-xs font-medium text-red-700"
+      role="alert"
+    >
+      <span class="sr-only">{{ 'VALIDATIONR.DANGER' | translate }}</span>
+      <i class="fa-solid fa-circle-exclamation mt-0.5 text-red-500"></i>
+      <ul class="space-y-0.5">
+        @if (registerFrom.get('password')?.hasError('required')) {
+          <li>{{ 'VALIDATIONR.PASSWORD_REQUIRED' | translate }}</li>
+        } @else if (registerFrom.get('password')?.hasError('pattern')) {
+          <li>{{ 'VALIDATIONR.PASSWORD_PATTERN' | translate }}</li>
+        }
+      </ul>
+    </div>
+  }
+
+  <!-- Confirm password -->
+  <div class="group relative">
+    <span
+      class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-4 text-slate-400 transition-colors group-focus-within:text-[#00298a]"
+    >
+      <svg
+        class="h-5 w-5"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M15.75 5.25a3 3 0 0 1 3 3m3 0a6 6 0 0 1-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1 1 21.75 8.25Z"
+        />
+      </svg>
+    </span>
+    <input
+      [class]="{
+        'border-red-500!':
+          registerFrom.get('rePassword')?.touched && registerFrom.hasError('misMatch'),
+        'border-green-500!':
+          registerFrom.get('rePassword')?.valid && !registerFrom.hasError('misMatch'),
+      }"
+      type="password"
+      formControlName="rePassword"
+      [placeholder]="'REGISTER.CONFIRM_PASSWORD_PLACEHOLDER' | translate"
+      class="block h-[46px] w-full rounded-xl border border-slate-200 bg-slate-50 ps-12 pe-4 text-sm text-slate-900 placeholder-slate-400 shadow-[0_1px_2px_rgba(15,23,42,0.03)] transition-all duration-200 hover:border-slate-300 focus:border-[#00298a] focus:bg-white focus:ring-4 focus:ring-[#00298a]/10 focus:outline-none"
+    />
+  </div>
+  @if (registerFrom.get('rePassword')?.invalid && registerFrom.get('rePassword')?.touched) {
+    <div
+      class="-mt-1.5 flex items-start gap-2 rounded-xl border border-red-200 bg-red-50 px-3.5 py-2.5 text-xs font-medium text-red-700"
+      role="alert"
+    >
+      <span class="sr-only">{{ 'VALIDATIONR.DANGER' | translate }}</span>
+      <i class="fa-solid fa-circle-exclamation mt-0.5 text-red-500"></i>
+      <ul class="space-y-0.5">
+        @if (registerFrom.get('rePassword')?.hasError('required')) {
+          <li>{{ 'VALIDATIONR.CONFIRM_PASSWORD_REQUIRED' | translate }}</li>
+        }
+      </ul>
+    </div>
+  }
+  @if (registerFrom.hasError('misMatch') && registerFrom.get('rePassword')?.touched) {
+    <div
+      class="-mt-1.5 flex items-start gap-2 rounded-xl border border-red-200 bg-red-50 px-3.5 py-2.5 text-xs font-medium text-red-700"
+      role="alert"
+    >
+      <span class="sr-only">{{ 'VALIDATIONR.DANGER' | translate }}</span>
+      <i class="fa-solid fa-circle-exclamation mt-0.5 text-red-500"></i>
+      <ul class="space-y-0.5">
+        <li>{{ 'VALIDATIONR.PASSWORDS_MISMATCH' | translate }}</li>
+      </ul>
+    </div>
+  }
+
+  <!-- Submit -->
+  <button
+    [disabled]="isloading()"
+    type="submit"
+    class="flex h-[48px] w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#00298a] to-[#1d4ed8] text-sm font-bold text-white shadow-lg shadow-[#00298a]/25 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[#00298a]/30 focus:outline-none focus:ring-4 focus:ring-[#00298a]/30 active:translate-y-0 active:scale-[0.98] disabled:translate-y-0 disabled:cursor-not-allowed disabled:from-slate-400 disabled:to-slate-500 disabled:shadow-none"
+  >
+    {{ 'REGISTER.SUBMIT' | translate }}
+    @if (isloading()) {
+      <i class="fa fa-spin fa-spinner"></i>
+    }
+  </button>
+
+  @if (errormsg()) {
+    <div
+      role="alert"
+      class="flex items-start gap-3 rounded-xl border border-red-200 bg-red-50 p-3.5 text-sm text-red-800 shadow-sm"
+    >
+      <svg
+        class="mt-0.5 h-5 w-5 shrink-0 text-red-500"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.5"
+        viewBox="0 0 24 24"
+        aria-hidden="true"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z"
+        />
+      </svg>
+      <p class="font-semibold leading-5">{{ errormsg() }}</p>
+    </div>
+  }
+
+  <!-- Divider -->
+  <div class="flex items-center gap-3 text-xs font-medium text-slate-400" aria-hidden="true">
+    <span class="h-px flex-1 bg-slate-200"></span>
+    {{ 'REGISTER.OR' | translate }}
+    <span class="h-px flex-1 bg-slate-200"></span>
+  </div>
+
+  <a
+    routerLink="/login"
+    class="inline-flex h-[46px] w-full items-center justify-center rounded-xl border border-slate-200 bg-white px-6 text-sm font-semibold text-[#00298a] transition-all duration-200 hover:border-[#00298a]/40 hover:bg-[#00298a]/5 focus:outline-none focus:ring-4 focus:ring-[#00298a]/10 active:scale-[0.98]"
+  >
+    {{ 'REGISTER.HAVE_ACCOUNT' | translate }}
+  </a>
+</form>

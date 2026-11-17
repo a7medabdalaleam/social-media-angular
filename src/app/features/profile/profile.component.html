@@ -1,0 +1,276 @@
+<section class="mx-auto w-full max-w-4xl px-4 py-5 font-sans">
+  <!-- Profile card -->
+  <article
+    class="overflow-hidden rounded-3xl border border-slate-200/70 bg-white shadow-[0_1px_2px_rgba(15,23,42,0.05),0_4px_16px_rgba(15,23,42,0.04)]"
+  >
+    <!-- Cover -->
+    <div
+      class="group relative h-40 bg-gradient-to-br from-[#00298a] via-blue-600 to-sky-400 sm:h-56"
+    >
+      <div
+        class="pointer-events-none absolute -end-10 -top-10 size-48 rounded-full bg-white/10 blur-2xl"
+      ></div>
+      <div
+        class="pointer-events-none absolute -bottom-10 start-10 size-40 rounded-full bg-sky-200/20 blur-2xl"
+      ></div>
+
+      <button
+        type="button"
+        class="absolute end-4 top-4 flex cursor-pointer items-center gap-2 rounded-xl bg-white/90 px-3.5 py-2 text-xs font-bold text-slate-700 shadow-md backdrop-blur transition-all duration-200 hover:bg-white hover:text-[#00298a] focus:outline-none focus:ring-4 focus:ring-white/40 active:scale-95"
+      >
+        <i class="fa-solid fa-camera"></i>
+        Edit cover
+      </button>
+    </div>
+
+    <!-- Info -->
+    <div class="px-4 pb-5 sm:px-8">
+      <div class="-mt-14 flex flex-col gap-4 sm:-mt-16 sm:flex-row sm:items-end sm:justify-between">
+        <!-- Avatar + name -->
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:gap-5">
+          <div class="relative w-fit">
+            <div
+              class="rounded-full bg-gradient-to-br from-[#00298a] via-blue-500 to-sky-400 p-[3px] shadow-xl shadow-[#00298a]/20"
+            >
+              <img
+                src="/assets/images/photo_2026-09-04_12-35-40.jpg"
+                alt="Ahmed Mostafa"
+                class="size-28 rounded-full border-4 border-white bg-slate-100 object-cover sm:size-32"
+              />
+            </div>
+            <button
+              type="button"
+              aria-label="Change photo"
+              class="absolute bottom-1 end-1 flex size-9 cursor-pointer items-center justify-center rounded-full border-2 border-white bg-[#00298a] text-xs text-white shadow-md transition-all duration-200 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-[#00298a]/30 active:scale-95"
+            >
+              <i class="fa-solid fa-camera"></i>
+            </button>
+          </div>
+
+          <div class="min-w-0 pb-1">
+            <h1
+              class="truncate text-2xl font-extrabold tracking-tight text-slate-900 rtl:tracking-normal sm:text-3xl"
+            >
+              Ahmed Mostafa
+            </h1>
+            <p class="mt-0.5 text-sm font-medium text-slate-500">&#64;ahmed_mostafa</p>
+          </div>
+        </div>
+
+        <!-- Actions -->
+        <div class="flex gap-2 pb-1">
+          <button
+            type="button"
+            class="group flex h-[44px] flex-1 cursor-pointer items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#00298a] to-[#1d4ed8] px-5 text-sm font-bold text-white shadow-lg shadow-[#00298a]/25 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-[#00298a]/30 focus:outline-none focus:ring-4 focus:ring-[#00298a]/30 active:translate-y-0 active:scale-[0.98] sm:flex-none"
+          >
+            <i class="fa-regular fa-pen-to-square text-xs"></i>
+            Edit profile
+          </button>
+          <button
+            type="button"
+            aria-label="More options"
+            class="flex size-[44px] shrink-0 cursor-pointer items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-500 transition-all duration-200 hover:border-[#00298a]/40 hover:bg-[#00298a]/5 hover:text-[#00298a] focus:outline-none focus:ring-4 focus:ring-[#00298a]/10 active:scale-95"
+          >
+            <i class="fa-solid fa-ellipsis"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Bio -->
+      <p class="mt-5 max-w-2xl text-sm leading-7 text-slate-600">
+        Front-end developer who loves building clean interfaces with Angular and Tailwind. Sharing
+        thoughts, projects and everything in between.
+      </p>
+
+      <!-- Meta -->
+      <div
+        class="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs font-medium text-slate-500"
+      >
+        <span class="flex items-center gap-1.5">
+          <i class="fa-solid fa-location-dot text-[#00298a]"></i> Cairo, Egypt
+        </span>
+        <span class="flex items-center gap-1.5">
+          <i class="fa-regular fa-envelope text-[#00298a]"></i> ahmed@example.com
+        </span>
+        <span class="flex items-center gap-1.5">
+          <i class="fa-regular fa-calendar text-[#00298a]"></i> Joined March 2025
+        </span>
+      </div>
+
+      <!-- Stats -->
+      <div class="mt-6 grid grid-cols-3 gap-3">
+        <button
+          type="button"
+          class="group cursor-pointer rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-white p-3.5 text-center transition-all duration-200 hover:-translate-y-0.5 hover:border-[#00298a]/30 hover:shadow-md hover:shadow-blue-900/5 focus:outline-none focus:ring-4 focus:ring-[#00298a]/10"
+        >
+          <p class="text-xl font-extrabold tracking-tight text-[#00298a]">128</p>
+          <p
+            class="mt-0.5 text-[11px] font-bold uppercase tracking-wider text-slate-500 rtl:tracking-normal"
+          >
+            Posts
+          </p>
+        </button>
+        <button
+          type="button"
+          class="group cursor-pointer rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-white p-3.5 text-center transition-all duration-200 hover:-translate-y-0.5 hover:border-[#00298a]/30 hover:shadow-md hover:shadow-blue-900/5 focus:outline-none focus:ring-4 focus:ring-[#00298a]/10"
+        >
+          <p class="text-xl font-extrabold tracking-tight text-[#00298a]">2.4K</p>
+          <p
+            class="mt-0.5 text-[11px] font-bold uppercase tracking-wider text-slate-500 rtl:tracking-normal"
+          >
+            Followers
+          </p>
+        </button>
+        <button
+          type="button"
+          class="group cursor-pointer rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50 to-white p-3.5 text-center transition-all duration-200 hover:-translate-y-0.5 hover:border-[#00298a]/30 hover:shadow-md hover:shadow-blue-900/5 focus:outline-none focus:ring-4 focus:ring-[#00298a]/10"
+        >
+          <p class="text-xl font-extrabold tracking-tight text-[#00298a]">310</p>
+          <p
+            class="mt-0.5 text-[11px] font-bold uppercase tracking-wider text-slate-500 rtl:tracking-normal"
+          >
+            Following
+          </p>
+        </button>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="border-t border-slate-100 px-3 sm:px-6">
+      <div class="flex gap-1 overflow-x-auto py-2 [scrollbar-width:none]" role="tablist">
+        <button
+          type="button"
+          role="tab"
+          aria-selected="true"
+          class="flex shrink-0 cursor-pointer items-center gap-2 rounded-xl bg-[#00298a] px-4 py-2.5 text-sm font-bold text-white shadow-md shadow-[#00298a]/20 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#00298a]/30"
+        >
+          <i class="fa-regular fa-newspaper"></i> Posts
+        </button>
+        <button
+          type="button"
+          role="tab"
+          aria-selected="false"
+          class="flex shrink-0 cursor-pointer items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold text-slate-500 transition-all duration-200 hover:bg-[#00298a]/5 hover:text-[#00298a] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#00298a]/20 active:scale-95"
+        >
+          <i class="fa-regular fa-image"></i> Photos
+        </button>
+        <button
+          type="button"
+          role="tab"
+          aria-selected="false"
+          class="flex shrink-0 cursor-pointer items-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold text-slate-500 transition-all duration-200 hover:bg-[#00298a]/5 hover:text-[#00298a] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#00298a]/20 active:scale-95"
+        >
+          <i class="fa-regular fa-bookmark"></i> Saved
+        </button>
+      </div>
+    </div>
+  </article>
+
+  <!-- Content -->
+  <div class="mt-5 grid grid-cols-1 items-start gap-5 lg:grid-cols-[300px_minmax(0,1fr)]">
+    <!-- About card -->
+    <aside
+      class="rounded-3xl border border-slate-200/70 bg-white p-5 shadow-[0_1px_2px_rgba(15,23,42,0.05),0_4px_16px_rgba(15,23,42,0.04)] lg:sticky lg:top-20"
+    >
+      <h2 class="flex items-center gap-2.5 text-[15px] font-bold tracking-tight text-slate-900">
+        <span
+          class="flex size-8 items-center justify-center rounded-xl bg-gradient-to-br from-[#00298a] to-blue-500 text-white shadow-sm"
+        >
+          <i class="fa-solid fa-circle-info text-[13px]"></i>
+        </span>
+        About
+      </h2>
+
+      <ul class="mt-4 space-y-3 text-sm">
+        <li class="flex items-start gap-3">
+          <span
+            class="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-slate-500"
+          >
+            <i class="fa-solid fa-briefcase text-xs"></i>
+          </span>
+          <div class="min-w-0">
+            <p class="text-xs font-medium text-slate-400">Works at</p>
+            <p class="truncate font-semibold text-slate-800">Route Academy</p>
+          </div>
+        </li>
+        <li class="flex items-start gap-3">
+          <span
+            class="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-slate-500"
+          >
+            <i class="fa-solid fa-graduation-cap text-xs"></i>
+          </span>
+          <div class="min-w-0">
+            <p class="text-xs font-medium text-slate-400">Studied</p>
+            <p class="truncate font-semibold text-slate-800">Computer Science</p>
+          </div>
+        </li>
+        <li class="flex items-start gap-3">
+          <span
+            class="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-slate-500"
+          >
+            <i class="fa-solid fa-cake-candles text-xs"></i>
+          </span>
+          <div class="min-w-0">
+            <p class="text-xs font-medium text-slate-400">Birthday</p>
+            <p class="truncate font-semibold text-slate-800">12 June 2000</p>
+          </div>
+        </li>
+        <li class="flex items-start gap-3">
+          <span
+            class="mt-0.5 flex size-8 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-slate-500"
+          >
+            <i class="fa-solid fa-venus-mars text-xs"></i>
+          </span>
+          <div class="min-w-0">
+            <p class="text-xs font-medium text-slate-400">Gender</p>
+            <p class="truncate font-semibold text-slate-800">Male</p>
+          </div>
+        </li>
+      </ul>
+    </aside>
+
+    <!-- Posts column -->
+    <div class="min-w-0 space-y-4">
+      <!-- Post card placeholder -->
+      <article
+        class="overflow-hidden rounded-3xl border border-slate-200/70 bg-white p-4 shadow-[0_1px_2px_rgba(15,23,42,0.05),0_4px_16px_rgba(15,23,42,0.04)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_32px_rgba(15,23,42,0.1)] sm:p-5"
+      >
+        <header class="flex items-center gap-3.5">
+          <div
+            class="shrink-0 rounded-full bg-gradient-to-br from-[#00298a] via-blue-500 to-sky-400 p-[2px]"
+          >
+            <img
+              src="/assets/images/photo_2026-09-04_12-35-40.jpg"
+              alt="Ahmed Mostafa"
+              class="size-11 rounded-full border-2 border-white bg-slate-100 object-cover"
+            />
+          </div>
+          <div class="min-w-0">
+            <p class="truncate text-[15px] font-bold leading-5 tracking-tight text-slate-900">
+              Ahmed Mostafa
+            </p>
+            <p class="mt-0.5 text-xs text-slate-500">&#64;ahmed_mostafa · 2h</p>
+          </div>
+        </header>
+        <p class="mt-3.5 text-sm leading-7 text-slate-700 sm:text-[15px]">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, amet!
+        </p>
+      </article>
+
+      <!-- Empty state -->
+      <div
+        class="flex flex-col items-center gap-3 rounded-3xl border border-dashed border-slate-300 bg-white/70 px-6 py-14 text-center"
+      >
+        <span
+          class="flex size-14 items-center justify-center rounded-2xl bg-[#00298a]/10 text-[#00298a]"
+        >
+          <i class="fa-regular fa-newspaper text-xl"></i>
+        </span>
+        <p class="text-[15px] font-bold tracking-tight text-slate-900">No more posts</p>
+        <p class="max-w-xs text-sm leading-6 text-slate-500">
+          When new posts are shared, they will show up here.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

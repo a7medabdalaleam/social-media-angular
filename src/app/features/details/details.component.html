@@ -1,0 +1,228 @@
+<section class="mx-auto w-full max-w-3xl px-4 py-5 font-sans">
+  <!-- Back -->
+  <button 
+  routerLink="/timeline"
+    type="button"
+    
+    class="group mb-4 inline-flex cursor-pointer items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-600 shadow-sm transition-all duration-200 hover:border-[#00298a]/40 hover:bg-[#00298a]/5 hover:text-[#00298a] focus:outline-none focus:ring-4 focus:ring-[#00298a]/10 active:scale-95"
+  >
+    <i
+      class="fa-solid fa-arrow-left text-xs transition-transform duration-200 group-hover:-translate-x-1 rtl:rotate-180 rtl:group-hover:translate-x-1"
+    ></i>
+    Back
+  </button>
+
+  <!-- Loading skeleton -->
+  @if (isloading()) {
+    <div
+      class="animate-pulse overflow-hidden rounded-3xl border border-slate-200/70 bg-white p-5 shadow-sm"
+      aria-busy="true"
+    >
+      <div class="flex items-center gap-3.5">
+        <div class="size-12 rounded-full bg-slate-200"></div>
+        <div class="space-y-2">
+          <div class="h-3.5 w-32 rounded bg-slate-200"></div>
+          <div class="h-3 w-24 rounded bg-slate-100"></div>
+        </div>
+      </div>
+      <div class="mt-5 space-y-2.5">
+        <div class="h-3.5 w-full rounded bg-slate-100"></div>
+        <div class="h-3.5 w-5/6 rounded bg-slate-100"></div>
+      </div>
+      <div class="mt-5 h-72 rounded-2xl bg-slate-100"></div>
+    </div>
+  }
+
+  <!-- Error -->
+  @else if (errormsg()) {
+    <div
+      role="alert"
+      class="flex flex-col items-center gap-3 rounded-3xl border border-red-200 bg-red-50 p-10 text-center shadow-sm"
+    >
+      <span class="flex size-14 items-center justify-center rounded-2xl bg-red-100 text-red-500">
+        <i class="fa-solid fa-circle-exclamation text-xl"></i>
+      </span>
+      <p class="text-sm font-semibold text-red-800">{{ errormsg() }}</p>
+      <a
+        routerLink="/timeline"
+        class="inline-flex h-[44px] items-center justify-center rounded-xl bg-[#00298a] px-6 text-sm font-bold text-white transition hover:bg-[#001f6b]"
+      >
+        Back to feed
+      </a>
+    </div>
+  }
+
+  <!-- Post -->
+  @else if (post(); as p) {
+    <article
+      class="overflow-hidden rounded-3xl border border-slate-200/70 bg-white shadow-[0_1px_2px_rgba(15,23,42,0.05),0_4px_16px_rgba(15,23,42,0.04)]"
+    >
+      <!-- Header -->
+      <header class="flex items-start justify-between gap-3 p-4 sm:p-6">
+        <div class="flex min-w-0 items-center gap-3.5">
+          <a
+            routerLink="/profile"
+            class="shrink-0 rounded-full bg-gradient-to-br from-[#00298a] via-blue-500 to-sky-400 p-[2px] shadow-md shadow-[#00298a]/20 transition-transform duration-300 hover:scale-105"
+          >
+            <img
+              [src]="p.user.photo"
+              [alt]="p.user.name"
+              class="size-12 rounded-full border-2 border-white bg-slate-100 object-cover"
+            />
+          </a>
+
+          <div class="min-w-0">
+            <a
+              routerLink="/profile"
+              class="block truncate text-base font-bold leading-5 tracking-tight text-slate-900 transition-colors hover:text-[#00298a]"
+            >
+              {{ p.user.name }}
+            </a>
+            <div class="mt-1 flex flex-wrap items-center gap-x-1.5 gap-y-1 text-xs text-slate-500">
+              <span class="font-medium">@{{ p.user.username }}</span>
+              <span class="text-slate-300">·</span>
+              <time class="whitespace-nowrap">{{ p.createdAt }}</time>
+              <span class="text-slate-300">·</span>
+              <span
+                class="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-slate-50 px-2.5 py-0.5 font-semibold text-slate-600"
+              >
+                @switch (p.privacy) {
+                  @case ('public') {
+                    <i class="fa-solid fa-earth-americas text-[10px] text-[#00298a]"></i> Public
+                  }
+                  @case ('following') {
+                    <i class="fa-solid fa-user-group text-[10px] text-[#00298a]"></i> Followers
+                  }
+                  @case ('only_me') {
+                    <i class="fa-solid fa-lock text-[10px] text-[#00298a]"></i> Only me
+                  }
+                }
+              </span>
+            </div>
+          </div>
+        </div>
+
+        @if (p.user._id === userId()) {
+          <div class="flex shrink-0 items-center gap-1">
+            <button
+              type="button"
+              aria-label="Edit post"
+              class="flex size-9 cursor-pointer items-center justify-center rounded-full text-slate-400 transition-all duration-200 hover:bg-[#00298a]/10 hover:text-[#00298a] focus:outline-none focus:ring-2 focus:ring-[#00298a]/20 active:scale-90"
+            >
+              <i class="fa-regular fa-pen-to-square"></i>
+            </button>
+            <button
+              type="button"
+              aria-label="Delete post"
+              class="flex size-9 cursor-pointer items-center justify-center rounded-full text-slate-400 transition-all duration-200 hover:bg-red-50 hover:text-red-600 focus:outline-none focus:ring-2 focus:ring-red-500/20 active:scale-90"
+            >
+              <i class="fa-regular fa-trash-can"></i>
+            </button>
+          </div>
+        }
+      </header>
+
+      <!-- Body -->
+      <div class="px-4 pb-5 sm:px-6">
+        @if (p.body) {
+          <p class="mb-4 whitespace-pre-line break-words text-[15px] leading-8 text-slate-700 sm:text-base">
+            {{ p.body }}
+          </p>
+        }
+
+        @if (p.image) {
+          <div class="overflow-hidden rounded-2xl border border-slate-200/70 bg-slate-100 shadow-inner">
+            <img [src]="p.image" [alt]="p.body" class="max-h-[640px] w-full object-contain" />
+          </div>
+        }
+      </div>
+
+      <!-- Stats -->
+      <div class="flex flex-wrap items-center justify-between gap-3 px-4 pb-3 text-xs text-slate-500 sm:px-6">
+        <span class="flex items-center gap-2 font-medium">
+          <span
+            class="flex size-5 items-center justify-center rounded-full bg-gradient-to-br from-[#00298a] to-blue-500 text-[10px] text-white shadow-sm ring-2 ring-white"
+          >
+            <i class="fa-solid fa-thumbs-up"></i>
+          </span>
+          {{ p.likesCount }} likes
+        </span>
+        <span class="flex items-center gap-3 font-medium">
+          <span>{{ p.commentsCount }} comments</span>
+          <span>{{ p.sharesCount }} shares</span>
+        </span>
+      </div>
+
+      <div class="mx-4 border-t border-slate-100 sm:mx-6"></div>
+
+      <!-- Actions -->
+      <div class="grid grid-cols-3 gap-1.5 px-3 py-2.5 sm:px-5">
+        <button
+          type="button"
+          class="group flex cursor-pointer items-center justify-center gap-2 rounded-xl px-2 py-2.5 text-sm font-semibold text-slate-600 transition-all duration-200 hover:bg-[#00298a]/5 hover:text-[#00298a] focus:outline-none focus:ring-2 focus:ring-[#00298a]/20 active:scale-95"
+        >
+          <i class="fa-regular fa-thumbs-up text-base transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:scale-110"></i>
+          <span>Like</span>
+        </button>
+        <button
+          type="button"
+          class="group flex cursor-pointer items-center justify-center gap-2 rounded-xl px-2 py-2.5 text-sm font-semibold text-slate-600 transition-all duration-200 hover:bg-[#00298a]/5 hover:text-[#00298a] focus:outline-none focus:ring-2 focus:ring-[#00298a]/20 active:scale-95"
+        >
+          <i class="fa-regular fa-comment text-base transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:scale-110"></i>
+          <span>Comment</span>
+        </button>
+        <button
+          type="button"
+          class="group flex cursor-pointer items-center justify-center gap-2 rounded-xl px-2 py-2.5 text-sm font-semibold text-slate-600 transition-all duration-200 hover:bg-[#00298a]/5 hover:text-[#00298a] focus:outline-none focus:ring-2 focus:ring-[#00298a]/20 active:scale-95"
+        >
+          <i class="fa-solid fa-share text-base transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:scale-110"></i>
+          <span>Share</span>
+        </button>
+      </div>
+
+      <!-- Comments -->
+      <section class="border-t border-slate-200/70 bg-slate-50/50 p-4 sm:p-6" aria-label="Comments">
+        <div class="mb-4 flex items-center gap-2.5">
+          <h3 class="text-[15px] font-bold tracking-tight text-slate-900">Comments</h3>
+          <span
+            class="rounded-full bg-[#00298a]/10 px-2.5 py-0.5 text-[12px] font-bold text-[#00298a] ring-1 ring-[#00298a]/10"
+          >
+            {{ p.commentsCount }}
+          </span>
+        </div>
+
+       
+
+        <!-- Write comment -->
+        <div class="mt-4 flex gap-2.5">
+          <div
+            class="mt-0.5 shrink-0 self-start rounded-full bg-gradient-to-br from-[#00298a] via-blue-500 to-sky-400 p-[2px]"
+          >
+            <img
+              [src]="p.user.photo"
+              alt="Your avatar"
+              class="size-8 rounded-full border-2 border-white bg-slate-100 object-cover"
+            />
+          </div>
+
+          <div
+            class="flex flex-1 items-end gap-2 rounded-2xl border border-slate-200 bg-white p-2 shadow-[0_1px_2px_rgba(15,23,42,0.04)] transition-all duration-200 hover:border-slate-300 focus-within:border-[#00298a] focus-within:ring-4 focus-within:ring-[#00298a]/10"
+          >
+            <textarea
+              class="min-h-[44px] w-full resize-none border-none bg-transparent px-2 py-1.5 text-[14px] leading-6 text-slate-800 outline-none placeholder:text-slate-400"
+              placeholder="Write a comment..."
+              aria-label="Write a comment"
+            ></textarea>
+            <button
+              type="button"
+              aria-label="Send comment"
+              class="group/send flex size-9 shrink-0 cursor-pointer items-center justify-center rounded-full bg-gradient-to-br from-[#00298a] to-[#1d4ed8] text-white shadow-md shadow-[#00298a]/25 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg focus:outline-none focus:ring-4 focus:ring-[#00298a]/30 active:translate-y-0 active:scale-90"
+            >
+              <i class="fa-solid fa-paper-plane text-[13px] transition-transform duration-200 group-hover/send:translate-x-0.5 rtl:-scale-x-100"></i>
+            </button>
+          </div>
+        </div>
+      </section>
+    </article>
+  }
+</section>

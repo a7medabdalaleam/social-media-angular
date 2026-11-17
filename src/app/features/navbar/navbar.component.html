@@ -1,0 +1,193 @@
+<nav
+  [class]="{
+    'p-3': ispadding(),
+  }"
+  class="sticky top-0 z-40 w-full border-b border-slate-200/80 bg-white/90 shadow-sm backdrop-blur-xl"
+>
+  <div
+    class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between gap-y-3 px-4 py-3 sm:px-6 lg:px-8"
+  >
+    <!-- Logo -->
+    <a routerLink="/timeline" class="group flex shrink-0 items-center gap-3">
+      <span
+        class="flex h-10 w-10 items-center justify-center overflow-hidden rounded-xl bg-[#00298a]/5 ring-1 ring-[#00298a]/10 transition duration-300 group-hover:scale-105 group-hover:shadow-md"
+      >
+        <img src="/images/images.png" class="h-full w-full object-cover" alt="Route Logo" />
+      </span>
+
+      <span class="whitespace-nowrap text-xl font-extrabold tracking-tight text-[#00298a]">
+        Route <span class="text-slate-800">Posts</span>
+      </span>
+    </a>
+
+    <!-- Right side -->
+    <div class="order-2 flex items-center gap-2 md:order-3">
+      <!-- User menu button -->
+      <button
+        type="button"
+        id="user-menu-button"
+        aria-expanded="false"
+        aria-controls="user-dropdown"
+        data-dropdown-toggle="user-dropdown"
+        data-dropdown-placement="bottom-end"
+        class="group flex items-center gap-2 rounded-full border border-transparent p-1 transition duration-200 hover:border-slate-200 hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-[#00298a]/10"
+      >
+        <span class="hidden text-right sm:block">
+          <span class="block text-sm font-semibold text-slate-800">
+            {{ Name() }}
+          </span>
+          <span class="block text-xs text-slate-500"> View profile </span>
+        </span>
+
+        <span
+          class="relative block rounded-full p-0.5 ring-2 ring-slate-200 transition duration-200 group-hover:ring-[#00298a]/40"
+        >
+          <img class="h-9 w-9 rounded-full object-cover" [src]="UserPhoto()" alt="User profile" />
+          <span
+            class="absolute bottom-0 end-0 h-2.5 w-2.5 rounded-full border-2 border-white bg-emerald-500"
+            aria-label="Online"
+          ></span>
+        </span>
+
+        <i
+          class="fa-solid fa-chevron-down me-1 hidden text-[10px] text-slate-400 transition-transform duration-200 sm:block"
+        ></i>
+      </button>
+
+      <!-- User dropdown -->
+      <div
+        id="user-dropdown"
+        class="z-50 hidden w-60 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl shadow-slate-900/10"
+      >
+        <div class="border-b border-slate-100 bg-slate-50/80 px-4 py-4">
+          <p class="truncate text-sm font-bold tracking-tight text-slate-900">
+            <span class="font-medium text-slate-500">User Name</span>
+            <span class="ms-1 text-[#00298a]">{{ userName.split(' ', 2).join(' ') }}</span>
+          </p>
+          <p class="mt-1 text-xs text-slate-500">Manage your account and preferences</p>
+        </div>
+
+        <ul
+          class="space-y-1 p-2 text-sm font-medium text-slate-700"
+          aria-labelledby="user-menu-button"
+        >
+          <li>
+            <a
+              routerLink="/profile"
+              class="flex items-center gap-3 rounded-xl px-3 py-2.5 transition hover:bg-slate-100 hover:text-[#00298a]"
+            >
+              <i class="fa-regular fa-user w-4 text-center"></i>
+              My Profile
+            </a>
+          </li>
+
+          <li>
+            <a
+              routerLink="/change-password"
+              routerLinkActive="bg-[#00298a]/5 text-[#00298a]"
+              class="flex items-center gap-3 rounded-xl px-3 py-2.5 transition hover:bg-slate-100 hover:text-[#00298a]"
+            >
+              <i class="fa-solid fa-gear w-4 text-center"></i>
+              Settings
+            </a>
+          </li>
+
+          <li class="border-t border-slate-100 pt-1">
+            <button
+              type="button"
+              (click)="logout()"
+              class="flex w-full cursor-pointer items-center gap-3 rounded-xl px-3 py-2.5 text-start text-red-600 transition hover:bg-red-50"
+            >
+              <i class="fa-solid fa-right-from-bracket w-4 text-center"></i>
+              Log out
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Mobile menu button -->
+      <button
+        type="button"
+        data-collapse-toggle="navbar-user"
+        aria-controls="navbar-user"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        class="inline-flex h-10 w-10 cursor-pointer items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-600 transition duration-200 hover:border-[#00298a]/20 hover:bg-[#00298a]/5 hover:text-[#00298a] focus:outline-none focus:ring-4 focus:ring-[#00298a]/10 md:hidden"
+      >
+        <svg
+          class="h-5 w-5"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Navigation links -->
+    <div
+      id="navbar-user"
+      class="order-3 hidden w-full md:order-2 md:flex md:w-auto md:items-center"
+    >
+      <ul
+        class="mt-2 flex flex-col gap-1 rounded-2xl border border-slate-200/80 bg-slate-50/80 p-2 md:mt-0 md:flex-row md:items-center md:gap-1 md:border-transparent md:bg-transparent md:p-0"
+      >
+        <li>
+          <a
+            routerLink="/timeline"
+            routerLinkActive="!bg-[#00298a] !text-white shadow-md shadow-[#00298a]/15"
+            ariaCurrentWhenActive="page"
+            class="group flex items-center gap-2.5 rounded-xl px-4 py-2.5 text-sm font-semibold text-slate-600 transition-all duration-200 hover:bg-white hover:text-[#00298a] md:hover:bg-[#00298a]/5"
+          >
+            <i
+              class="fa-regular fa-house text-base transition-transform duration-200 group-hover:-translate-y-0.5"
+            ></i>
+            Feed
+          </a>
+        </li>
+
+        <li>
+          <a
+            routerLink="/profile"
+            routerLinkActive="!bg-[#00298a] !text-white shadow-md shadow-[#00298a]/15"
+            ariaCurrentWhenActive="page"
+            class="group flex items-center gap-2.5 rounded-xl px-4 py-2.5 text-sm font-semibold text-slate-600 transition-all duration-200 hover:bg-white hover:text-[#00298a] md:hover:bg-[#00298a]/5"
+          >
+            <i
+              class="fa-regular fa-user text-base transition-transform duration-200 group-hover:-translate-y-0.5"
+            ></i>
+            Profile
+          </a>
+        </li>
+
+        <li>
+          <a
+            routerLink="/notification"
+            routerLinkActive="!bg-[#00298a] !text-white shadow-md shadow-[#00298a]/15"
+            ariaCurrentWhenActive="page"
+            ariaCurrentWhenActive="page"
+            class="group relative flex items-center gap-2.5 rounded-xl px-4 py-2.5 text-sm font-semibold text-slate-600 transition-all duration-200 hover:bg-white hover:text-[#00298a] md:hover:bg-[#00298a]/5"
+          >
+            <span class="relative">
+              <i
+                class="fa-regular fa-bell text-base transition-transform duration-200 group-hover:-rotate-12"
+              ></i>
+              <span
+                class="absolute -end-1 -top-1 h-2 w-2 rounded-full bg-red-500 ring-2 ring-white"
+              ></span>
+            </span>
+            Notification
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

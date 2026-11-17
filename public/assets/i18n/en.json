@@ -1,0 +1,64 @@
+{
+  "LOGIN": {
+    "TITLE": "Log in to Route Posts",
+    "SUBTITLE": "Log in and continue your social journey",
+    "EMAIL_PLACEHOLDER": "Email or User Name",
+    "PASSWORD_PLACEHOLDER": "Password",
+    "FORGOT_PASSWORD": "Forgot password?",
+    "SUBMIT": "Log in",
+    "OR": "or",
+    "CREATE_ACCOUNT": "Create your new Account"
+  },
+  "VALIDATION": {
+    "DANGER": "Danger",
+    "EMAIL_REQUIRED": "Email is required.",
+    "EMAIL_INVALID": "Please enter a valid email address.",
+    "PASSWORD_REQUIRED": "Password is required.",
+    "PASSWORD_PATTERN": "Must contain at least 8 chars, 1 uppercase, 1 lowercase, 1 number, and 1 special"
+  },
+  "AUTH_LAYOUT": {
+    "BRAND": "Route Posts",
+    "TAGLINE": "Connect with friends and the world around you on Route Posts.",
+    "ABOUT_LABEL": "About Route Academy",
+    "ABOUT_TITLE": "Egypt's Leading IT Training Center Since 2012",
+    "ABOUT_TEXT": "Route Academy is the premier IT training center in Egypt, established in 2012. We specialize in delivering high-quality training courses in programming, web development, and application development. We've identified the unique challenges people may face when learning new technology and made efforts to provide strategies to overcome them.",
+    "STATS": {
+      "FOUNDED": "Founded",
+      "GRADUATES": "Graduates",
+      "PARTNERS": "Partner companies",
+      "BRANCHES": "Branches",
+      "DIPLOMAS": "Diplomas available"
+    },
+    "TABS": {
+      "LOGIN": "Login",
+      "REGISTER": "Register"
+    }
+  },
+  "REGISTER": {
+    "TITLE": "Create a new account",
+    "SUBTITLE": "It is quick and easy.",
+    "NAME_PLACEHOLDER": "Full name",
+    "USERNAME_PLACEHOLDER": "Username (optional)",
+    "EMAIL_PLACEHOLDER": "Email address",
+    "GENDER_PLACEHOLDER": "Select gender",
+    "GENDER_MALE": "Male",
+    "GENDER_FEMALE": "Female",
+    "PASSWORD_PLACEHOLDER": "Password",
+    "CONFIRM_PASSWORD_PLACEHOLDER": "Confirm password",
+    "SUBMIT": "Create New Account",
+    "OR": "or",
+    "HAVE_ACCOUNT": "Log in to your account"
+  },
+  "VALIDATIONR": {
+    "NAME_REQUIRED": "Full Name is required.",
+    "NAME_MINLENGTH": "Name must be at least 3 characters",
+    "EMAIL_REQUIRED": "Email is required.",
+    "GENDER_REQUIRED": "Please select your gender.",
+    "DOB_REQUIRED": "Date of birth is required.",
+    "PASSWORD_REQUIRED": "Password is required.",
+    "PASSWORD_PATTERN": "Must contain at least 8 chars, 1 uppercase, 1 lowercase, 1 number, and 1 special",
+    "EMAIL_INVALID": "Please enter a valid email address.",
+    "CONFIRM_PASSWORD_REQUIRED": "Please confirm your password.",
+    "PASSWORDS_MISMATCH": "Passwords do not match."
+  }
+}

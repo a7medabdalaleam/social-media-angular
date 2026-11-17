@@ -1,0 +1,96 @@
+<aside
+  class="sticky top-0 rounded-3xl border border-slate-200/70 bg-white p-4 font-sans shadow-[0_1px_2px_rgba(15,23,42,0.05),0_4px_16px_rgba(15,23,42,0.04)]"
+>
+  <!-- Header -->
+  <div class="mb-4 flex items-center justify-between px-1">
+    <div class="flex items-center gap-2.5">
+      <span
+        class="flex size-8 items-center justify-center rounded-xl bg-gradient-to-br from-[#00298a] to-blue-500 text-white shadow-sm"
+      >
+        <i class="fa-solid fa-user-group text-[13px]"></i>
+      </span>
+      <h2 class="text-[17px] font-bold tracking-tight text-slate-900">Suggested Friends</h2>
+    </div>
+    <span
+      class="rounded-full bg-[#00298a]/10 px-2.5 py-1 text-xs font-bold text-[#00298a] ring-1 ring-[#00298a]/10"
+      >5</span
+    >
+  </div>
+
+  <!-- Search -->
+  <div class="group relative mb-4">
+    <div class="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3.5">
+      <i
+        class="fa-solid fa-magnifying-glass text-sm text-slate-400 transition-colors group-focus-within:text-[#00298a]"
+      ></i>
+    </div>
+    <input
+      type="text"
+      class="block h-[42px] w-full rounded-xl border border-slate-200 bg-slate-50 ps-10 pe-3 text-sm text-slate-800 placeholder-slate-400 outline-none transition-all hover:border-slate-300 focus:border-[#00298a] focus:bg-white focus:ring-4 focus:ring-[#00298a]/10"
+      placeholder="Search friends..."
+      aria-label="Search friends"
+    />
+  </div>
+
+  <!-- List -->
+  <div class="grid max-h-88 gap-3 overflow-y-auto pb-1 pe-0.5 [scrollbar-width:thin]">
+    <div
+      class="group rounded-2xl border border-slate-200/80 bg-white p-3 transition-all duration-200 hover:-translate-y-0.5 hover:border-[#00298a]/30 hover:shadow-[0_8px_20px_rgba(15,23,42,0.07)]"
+    >
+      <div class="flex items-start gap-3">
+        <!-- Avatar -->
+        <div
+          class="shrink-0 rounded-full bg-gradient-to-br from-[#00298a] via-blue-500 to-sky-400 p-[2px] transition-transform duration-300 group-hover:scale-105"
+        >
+          <img
+            src="https://i.pravatar.cc/150?img=11"
+            alt="Ahmed Bahnasy"
+            class="size-11 rounded-full border-2 border-white bg-slate-100 object-cover"
+          />
+        </div>
+
+        <div class="flex min-w-0 flex-1 flex-col gap-2.5">
+          <div class="mt-0.5 flex items-center justify-between gap-2">
+            <div class="flex min-w-0 flex-col">
+              <span
+                class="cursor-pointer truncate text-[14px] font-bold leading-tight tracking-tight text-slate-900 transition-colors hover:text-[#00298a]"
+              >
+                {{ Name }}
+              </span>
+              <span class="mt-0.5 truncate text-[13px] font-medium leading-tight text-slate-500"
+                >@{{ userName }}...</span
+              >
+            </div>
+            <button
+              class="flex shrink-0 cursor-pointer items-center gap-1.5 rounded-xl bg-[#00298a]/10 px-3.5 py-1.5 text-[13px] font-bold text-[#00298a] transition-all duration-200 hover:bg-[#00298a] hover:text-white hover:shadow-md hover:shadow-[#00298a]/25 focus:outline-none focus:ring-2 focus:ring-[#00298a]/30 active:scale-95"
+            >
+              <i class="fa-solid fa-user-plus text-[11px]"></i>
+              Follow
+            </button>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <span
+              class="rounded-lg bg-slate-100 px-2 py-1 text-[11px] font-semibold text-slate-500 ring-1 ring-slate-200/60"
+              >41 followers</span
+            >
+            <span
+              class="rounded-lg bg-[#00298a]/10 px-2 py-1 text-[11px] font-semibold text-[#00298a] ring-1 ring-[#00298a]/10"
+              >2 mutual</span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- View more -->
+  <button
+    class="group mt-3 flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white py-2.5 text-[14px] font-bold text-slate-700 outline-none transition-all duration-200 hover:border-[#00298a]/40 hover:bg-[#00298a]/5 hover:text-[#00298a] focus:ring-4 focus:ring-[#00298a]/10 active:scale-[0.98]"
+  >
+    View more
+    <i
+      class="fa-solid fa-arrow-right text-xs transition-transform duration-200 group-hover:translate-x-1 rtl:rotate-180 rtl:group-hover:-translate-x-1"
+    ></i>
+  </button>
+</aside>

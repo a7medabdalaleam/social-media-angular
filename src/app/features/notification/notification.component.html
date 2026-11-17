@@ -1,0 +1,403 @@
+<section class="mx-auto w-full max-w-2xl px-4 py-5 font-sans">
+  <article
+    class="overflow-hidden rounded-3xl border border-slate-200/70 bg-white shadow-[0_1px_2px_rgba(15,23,42,0.05),0_4px_16px_rgba(15,23,42,0.04)]"
+  >
+    <!-- Header -->
+    <header class="flex flex-wrap items-center justify-between gap-3 p-4 sm:p-5">
+      <div class="flex items-center gap-3">
+        <span
+          class="flex size-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#00298a] to-blue-500 text-white shadow-md shadow-[#00298a]/25"
+        >
+          <i class="fa-regular fa-bell"></i>
+        </span>
+        <div>
+          <h1
+            class="flex items-center gap-2 text-xl font-extrabold tracking-tight text-slate-900 rtl:tracking-normal"
+          >
+            Notifications
+            <span
+              class="rounded-full bg-[#00298a]/10 px-2.5 py-0.5 text-xs font-bold text-[#00298a] ring-1 ring-[#00298a]/10"
+            >
+              2 new
+            </span>
+          </h1>
+          <p class="text-xs text-slate-500">Stay up to date with your activity</p>
+        </div>
+      </div>
+
+      <button
+        type="button"
+        class="flex cursor-pointer items-center gap-2 rounded-xl border border-slate-200 bg-white px-3.5 py-2 text-xs font-bold text-[#00298a] transition-all duration-200 hover:border-[#00298a]/40 hover:bg-[#00298a]/5 focus:outline-none focus:ring-4 focus:ring-[#00298a]/10 active:scale-95"
+      >
+        <i class="fa-solid fa-check-double"></i>
+        Mark all as read
+      </button>
+    </header>
+
+    <!-- Tabs -->
+    <div class="border-t border-slate-100 px-3 sm:px-5">
+      <div class="flex gap-1 py-2" role="tablist">
+        <button
+          type="button"
+          role="tab"
+          aria-selected="true"
+          class="cursor-pointer rounded-xl bg-[#00298a] px-4 py-2 text-sm font-semibold text-white shadow-md shadow-[#00298a]/20 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#00298a]/30"
+        >
+          All
+        </button>
+        <button
+          type="button"
+          role="tab"
+          aria-selected="false"
+          class="cursor-pointer rounded-xl px-4 py-2 text-sm font-semibold text-slate-500 transition-all duration-200 hover:bg-[#00298a]/5 hover:text-[#00298a] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#00298a]/20 active:scale-95"
+        >
+          Unread
+        </button>
+      </div>
+    </div>
+
+    <!-- List -->
+    <ul class="divide-y divide-slate-100 border-t border-slate-100">
+      <!-- Unread: like -->
+      <li
+        class="group relative flex items-start gap-3.5 bg-[#00298a]/[0.03] px-4 py-3.5 transition-colors duration-200 hover:bg-slate-50 sm:px-5"
+      >
+        <span
+          class="absolute start-1.5 top-1/2 size-2 -translate-y-1/2 rounded-full bg-[#00298a]"
+          aria-label="Unread"
+        ></span>
+
+        <div class="relative shrink-0">
+          <div
+            class="rounded-full bg-gradient-to-br from-[#00298a] via-blue-500 to-sky-400 p-[2px]"
+          >
+            <img
+              src="https://i.pravatar.cc/150?img=11"
+              alt="Ahmed Bahnasy"
+              class="size-11 rounded-full border-2 border-white bg-slate-100 object-cover"
+            />
+          </div>
+          <span
+            class="absolute -bottom-1 -end-1 flex size-5 items-center justify-center rounded-full bg-[#00298a] text-[9px] text-white ring-2 ring-white"
+          >
+            <i class="fa-solid fa-thumbs-up"></i>
+          </span>
+        </div>
+
+        <div class="min-w-0 flex-1">
+          <p class="text-sm leading-6 text-slate-700">
+            <a
+              class="font-bold text-slate-900 transition-colors hover:text-[#00298a] hover:underline"
+              >Ahmed Bahnasy</a
+            >
+            liked your post
+          </p>
+          <p class="mt-0.5 flex items-center gap-1.5 text-xs text-slate-400">
+            <i class="fa-regular fa-clock text-[10px]"></i> 2m ago
+          </p>
+          <a
+            class="mt-2 inline-flex items-center gap-1.5 rounded-full bg-[#00298a]/10 px-3 py-1 text-xs font-semibold text-[#00298a] transition-all hover:bg-[#00298a] hover:text-white"
+          >
+            View post
+            <i class="fa-solid fa-arrow-right text-[10px] rtl:rotate-180"></i>
+          </a>
+        </div>
+
+        <div class="relative shrink-0">
+          <button
+            type="button"
+            id="notif-btn-1"
+            data-dropdown-toggle="notif-menu-1"
+            data-dropdown-placement="bottom-end"
+            aria-label="Notification options"
+            class="flex size-8 cursor-pointer items-center justify-center rounded-full text-slate-400 transition-all duration-200 hover:bg-[#00298a]/10 hover:text-[#00298a] focus:outline-none focus:ring-2 focus:ring-[#00298a]/20 active:scale-90"
+          >
+            <i class="fa-solid fa-ellipsis"></i>
+          </button>
+
+          <div
+            id="notif-menu-1"
+            class="z-50 hidden w-48 overflow-hidden rounded-2xl border border-slate-200 bg-white p-1.5 shadow-[0_16px_40px_rgba(15,23,42,0.16)]"
+          >
+            <ul
+              class="space-y-0.5 text-sm font-medium text-slate-700"
+              aria-labelledby="notif-btn-1"
+            >
+              <li>
+                <button
+                  type="button"
+                  class="group/item flex w-full cursor-pointer items-center gap-3 rounded-xl px-3 py-2.5 text-start transition-colors hover:bg-[#00298a]/5 hover:text-[#00298a]"
+                >
+                  <i
+                    class="fa-solid fa-check w-4 text-center text-slate-400 group-hover/item:text-[#00298a]"
+                  ></i>
+                  Mark as read
+                </button>
+              </li>
+              <li class="my-1 border-t border-slate-100"></li>
+              <li>
+                <button
+                  type="button"
+                  class="flex w-full cursor-pointer items-center gap-3 rounded-xl px-3 py-2.5 text-start text-red-600 transition-colors hover:bg-red-50"
+                >
+                  <i class="fa-regular fa-trash-can w-4 text-center"></i>
+                  Remove
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </li>
+
+      <!-- Unread: comment -->
+      <li
+        class="group relative flex items-start gap-3.5 bg-[#00298a]/[0.03] px-4 py-3.5 transition-colors duration-200 hover:bg-slate-50 sm:px-5"
+      >
+        <span
+          class="absolute start-1.5 top-1/2 size-2 -translate-y-1/2 rounded-full bg-[#00298a]"
+          aria-label="Unread"
+        ></span>
+
+        <div class="relative shrink-0">
+          <div
+            class="rounded-full bg-gradient-to-br from-[#00298a] via-blue-500 to-sky-400 p-[2px]"
+          >
+            <img
+              src="https://i.pravatar.cc/150?img=47"
+              alt="Sara Ali"
+              class="size-11 rounded-full border-2 border-white bg-slate-100 object-cover"
+            />
+          </div>
+          <span
+            class="absolute -bottom-1 -end-1 flex size-5 items-center justify-center rounded-full bg-emerald-500 text-[9px] text-white ring-2 ring-white"
+          >
+            <i class="fa-solid fa-comment"></i>
+          </span>
+        </div>
+
+        <div class="min-w-0 flex-1">
+          <p class="text-sm leading-6 text-slate-700">
+            <a
+              class="font-bold text-slate-900 transition-colors hover:text-[#00298a] hover:underline"
+              >Sara Ali</a
+            >
+            commented on your post
+          </p>
+          <p class="mt-0.5 flex items-center gap-1.5 text-xs text-slate-400">
+            <i class="fa-regular fa-clock text-[10px]"></i> 1h ago
+          </p>
+          <p
+            class="mt-2 rounded-xl border border-slate-200/80 bg-white px-3 py-2 text-xs leading-5 text-slate-600"
+          >
+            Great work, this looks amazing!
+          </p>
+        </div>
+
+        <div class="relative shrink-0">
+          <button
+            type="button"
+            id="notif-btn-2"
+            data-dropdown-toggle="notif-menu-2"
+            data-dropdown-placement="bottom-end"
+            aria-label="Notification options"
+            class="flex size-8 cursor-pointer items-center justify-center rounded-full text-slate-400 transition-all duration-200 hover:bg-[#00298a]/10 hover:text-[#00298a] focus:outline-none focus:ring-2 focus:ring-[#00298a]/20 active:scale-90"
+          >
+            <i class="fa-solid fa-ellipsis"></i>
+          </button>
+
+          <div
+            id="notif-menu-2"
+            class="z-50 hidden w-48 overflow-hidden rounded-2xl border border-slate-200 bg-white p-1.5 shadow-[0_16px_40px_rgba(15,23,42,0.16)]"
+          >
+            <ul
+              class="space-y-0.5 text-sm font-medium text-slate-700"
+              aria-labelledby="notif-btn-2"
+            >
+              <li>
+                <button
+                  type="button"
+                  class="group/item flex w-full cursor-pointer items-center gap-3 rounded-xl px-3 py-2.5 text-start transition-colors hover:bg-[#00298a]/5 hover:text-[#00298a]"
+                >
+                  <i
+                    class="fa-solid fa-check w-4 text-center text-slate-400 group-hover/item:text-[#00298a]"
+                  ></i>
+                  Mark as read
+                </button>
+              </li>
+              <li class="my-1 border-t border-slate-100"></li>
+              <li>
+                <button
+                  type="button"
+                  class="flex w-full cursor-pointer items-center gap-3 rounded-xl px-3 py-2.5 text-start text-red-600 transition-colors hover:bg-red-50"
+                >
+                  <i class="fa-regular fa-trash-can w-4 text-center"></i>
+                  Remove
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </li>
+
+      <!-- Read: follow -->
+      <li
+        class="group relative flex items-start gap-3.5 px-4 py-3.5 transition-colors duration-200 hover:bg-slate-50 sm:px-5"
+      >
+        <div class="relative shrink-0">
+          <div
+            class="rounded-full bg-gradient-to-br from-[#00298a] via-blue-500 to-sky-400 p-[2px]"
+          >
+            <img
+              src="https://i.pravatar.cc/150?img=12"
+              alt="Omar Hassan"
+              class="size-11 rounded-full border-2 border-white bg-slate-100 object-cover"
+            />
+          </div>
+          <span
+            class="absolute -bottom-1 -end-1 flex size-5 items-center justify-center rounded-full bg-violet-500 text-[9px] text-white ring-2 ring-white"
+          >
+            <i class="fa-solid fa-user-plus"></i>
+          </span>
+        </div>
+
+        <div class="min-w-0 flex-1">
+          <p class="text-sm leading-6 text-slate-700">
+            <a
+              class="font-bold text-slate-900 transition-colors hover:text-[#00298a] hover:underline"
+              >Omar Hassan</a
+            >
+            started following you
+          </p>
+          <p class="mt-0.5 flex items-center gap-1.5 text-xs text-slate-400">
+            <i class="fa-regular fa-clock text-[10px]"></i> 5h ago
+          </p>
+          <button
+            type="button"
+            class="mt-2 inline-flex cursor-pointer items-center gap-1.5 rounded-xl bg-[#00298a]/10 px-3.5 py-1.5 text-xs font-bold text-[#00298a] transition-all duration-200 hover:bg-[#00298a] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#00298a]/30 active:scale-95"
+          >
+            <i class="fa-solid fa-user-plus text-[10px]"></i>
+            Follow back
+          </button>
+        </div>
+
+        <div class="relative shrink-0">
+          <button
+            type="button"
+            id="notif-btn-3"
+            data-dropdown-toggle="notif-menu-3"
+            data-dropdown-placement="bottom-end"
+            aria-label="Notification options"
+            class="flex size-8 cursor-pointer items-center justify-center rounded-full text-slate-400 transition-all duration-200 hover:bg-[#00298a]/10 hover:text-[#00298a] focus:outline-none focus:ring-2 focus:ring-[#00298a]/20 active:scale-90"
+          >
+            <i class="fa-solid fa-ellipsis"></i>
+          </button>
+
+          <div
+            id="notif-menu-3"
+            class="z-50 hidden w-48 overflow-hidden rounded-2xl border border-slate-200 bg-white p-1.5 shadow-[0_16px_40px_rgba(15,23,42,0.16)]"
+          >
+            <ul
+              class="space-y-0.5 text-sm font-medium text-slate-700"
+              aria-labelledby="notif-btn-3"
+            >
+              <li>
+                <button
+                  type="button"
+                  class="flex w-full cursor-pointer items-center gap-3 rounded-xl px-3 py-2.5 text-start text-red-600 transition-colors hover:bg-red-50"
+                >
+                  <i class="fa-regular fa-trash-can w-4 text-center"></i>
+                  Remove
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </li>
+
+      <!-- Read: share -->
+      <li
+        class="group relative flex items-start gap-3.5 px-4 py-3.5 transition-colors duration-200 hover:bg-slate-50 sm:px-5"
+      >
+        <div class="relative shrink-0">
+          <div
+            class="rounded-full bg-gradient-to-br from-[#00298a] via-blue-500 to-sky-400 p-[2px]"
+          >
+            <img
+              src="https://i.pravatar.cc/150?img=45"
+              alt="Mona Adel"
+              class="size-11 rounded-full border-2 border-white bg-slate-100 object-cover"
+            />
+          </div>
+          <span
+            class="absolute -bottom-1 -end-1 flex size-5 items-center justify-center rounded-full bg-amber-500 text-[9px] text-white ring-2 ring-white"
+          >
+            <i class="fa-solid fa-share"></i>
+          </span>
+        </div>
+
+        <div class="min-w-0 flex-1">
+          <p class="text-sm leading-6 text-slate-700">
+            <a
+              class="font-bold text-slate-900 transition-colors hover:text-[#00298a] hover:underline"
+              >Mona Adel</a
+            >
+            shared your post
+          </p>
+          <p class="mt-0.5 flex items-center gap-1.5 text-xs text-slate-400">
+            <i class="fa-regular fa-clock text-[10px]"></i> Yesterday
+          </p>
+          <a
+            class="mt-2 inline-flex items-center gap-1.5 rounded-full bg-[#00298a]/10 px-3 py-1 text-xs font-semibold text-[#00298a] transition-all hover:bg-[#00298a] hover:text-white"
+          >
+            View post
+            <i class="fa-solid fa-arrow-right text-[10px] rtl:rotate-180"></i>
+          </a>
+        </div>
+
+        <div class="relative shrink-0">
+          <button
+            type="button"
+            id="notif-btn-4"
+            data-dropdown-toggle="notif-menu-4"
+            data-dropdown-placement="bottom-end"
+            aria-label="Notification options"
+            class="flex size-8 cursor-pointer items-center justify-center rounded-full text-slate-400 transition-all duration-200 hover:bg-[#00298a]/10 hover:text-[#00298a] focus:outline-none focus:ring-2 focus:ring-[#00298a]/20 active:scale-90"
+          >
+            <i class="fa-solid fa-ellipsis"></i>
+          </button>
+
+          <div
+            id="notif-menu-4"
+            class="z-50 hidden w-48 overflow-hidden rounded-2xl border border-slate-200 bg-white p-1.5 shadow-[0_16px_40px_rgba(15,23,42,0.16)]"
+          >
+            <ul
+              class="space-y-0.5 text-sm font-medium text-slate-700"
+              aria-labelledby="notif-btn-4"
+            >
+              <li>
+                <button
+                  type="button"
+                  class="flex w-full cursor-pointer items-center gap-3 rounded-xl px-3 py-2.5 text-start text-red-600 transition-colors hover:bg-red-50"
+                >
+                  <i class="fa-regular fa-trash-can w-4 text-center"></i>
+                  Remove
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <!-- Empty state (show when there are no notifications) -->
+    <!--
+    <div class="flex flex-col items-center gap-3 border-t border-slate-100 px-6 py-14 text-center">
+      <span class="flex size-14 items-center justify-center rounded-2xl bg-[#00298a]/10 text-[#00298a]">
+        <i class="fa-regular fa-bell-slash text-xl"></i>
+      </span>
+      <p class="text-[15px] font-bold tracking-tight text-slate-900">You're all caught up</p>
+      <p class="max-w-xs text-sm leading-6 text-slate-500">New notifications will show up here.</p>
+    </div>
+    -->
+  </article>
+</section>

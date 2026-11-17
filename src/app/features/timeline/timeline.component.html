@@ -1,0 +1,20 @@
+<section class="min-h-screen bg-slate-50">
+  <div
+    class="mx-auto grid max-w-screen-xl grid-cols-1 items-start gap-5 px-4 py-5 md:grid-cols-[220px_minmax(0,1fr)] lg:grid-cols-[240px_minmax(0,1fr)_340px]"
+  >
+    <!-- Left sidebar -->
+    <aside class="hidden md:block md:sticky md:top-20 md:self-start">
+      <app-sideleftbar></app-sideleftbar>
+    </aside>
+
+    <!-- Main feed -->
+    <main class="min-w-0">
+      <app-posts></app-posts>
+    </main>
+
+    <!-- Right sidebar -->
+    <aside class="hidden lg:block lg:sticky lg:top-20 lg:self-start">
+      <app-siderightbar></app-siderightbar>
+    </aside>
+  </div>
+</section>

@@ -1,0 +1,37 @@
+<section class="flex justify-end">
+  <div
+    class="inline-flex gap-1 rounded-full border border-slate-200 bg-slate-100 p-1 shadow-[0_1px_2px_rgba(15,23,42,0.03)]"
+    role="group"
+    aria-label="Language"
+  >
+    <button
+      type="button"
+      lang="en"
+      (click)="changeLang('en')"
+      [attr.aria-pressed]="translateService.currentLang() === 'en'"
+      [class]="
+        translateService.currentLang() === 'en'
+          ? 'bg-[#00298a] text-white shadow-md shadow-[#00298a]/25'
+          : 'bg-transparent text-slate-600 hover:bg-white hover:text-[#00298a]'
+      "
+      class="h-9 min-w-14 cursor-pointer rounded-full px-4 text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#00298a]/20 active:scale-[0.97]"
+    >
+      EN
+    </button>
+
+    <button
+      type="button"
+      lang="ar"
+      (click)="changeLang('ar')"
+      [attr.aria-pressed]="translateService.currentLang() === 'ar'"
+      [class]="
+        translateService.currentLang() === 'ar'
+          ? 'bg-[#00298a] text-white shadow-md shadow-[#00298a]/25'
+          : 'bg-transparent text-slate-600 hover:bg-white hover:text-[#00298a]'
+      "
+      class="h-9 min-w-14 cursor-pointer rounded-full px-4 text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#00298a]/20 active:scale-[0.97]"
+    >
+      عربي
+    </button>
+  </div>
+</section>
